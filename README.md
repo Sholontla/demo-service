@@ -82,6 +82,13 @@ O/I
   "producer_created_at": "producer1"
 }
 
+. Waht is missing:
+  . the HTTP server to send the certs for gRPC client and server
+  . Makfile tu assembly the demo service
+  . Admin service to manage the structure project
+  . Add to the strcuture the Batch fileServer
+  . Add to the strcucture the cloud service
+  
 ## License
 
 For testing and demostrations purposes.
