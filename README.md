@@ -29,7 +29,22 @@ Python as HTTP client to make request to the service prodcucer.
 ### Built With
 
 - Python
+this service is made with Python.
+  . python_http_client
+  
 - Golang
+this services are dev with Go.
+ . admin
+ . files_server (batch file processing)
+ . logger (logger service with Prometheus, grafana, promtail, loki)
+ . producer (producer and gRPC client)
+ . service_consumer1 (producer and gRPC server 1)
+ . service_consumer2 (consumer and gRPC server 2)
+ . service_consumer3 (consumer and gRPC server 3)
+ . service_consumer4 (consumer and gRPC server 4)
+ . service_consumer5 (consumer and gRPC server 5)
+
+- tools / frameworks
   . fiber
   . gRPC 
 - Docker
@@ -82,7 +97,7 @@ O/I
   "producer_created_at": "producer1"
 }
 
-. Waht is missing:
+. What is missing:
   . the HTTP server to send the certs for gRPC client and server
   . Makfile tu assembly the demo service
   . Admin service to manage the structure project
