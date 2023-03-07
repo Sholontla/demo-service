@@ -1,15 +1,15 @@
 <div id="top"></div>
 
-<!-- Structure Demo Spring -->
+<!-- Service Demo in Go and Python -->
 <br />
 <div align="center">
-  <a href="https://github.com/Sholontla">
+  <a href="[https://github.com/Sholontla](https://github.com/Sholontla/demo-service/edit/main](https://github.com/Sholontla/demo-service/edit/main/)">
   </a>
 
-<h3 align="center">Structure Demo Spring</h3>
+<h3 align="center">Service Demo in Go and Python</h3>
 
   <p align="center">
-   This Structure Demo is use for testing and demostration to understad the full Demo Structure please visit the diagram: https://github.com/Sholontla/structure-demo-configurations/blob/main/diagram-demo.pdf
+   This Structure Demo is use for testing and demostration to understad Demo Structure Service please visit the diagram: https://github.com/Sholontla/structure-demo-configurations/blob/main/diagram-demo.pdf
     <br />
     <br />
   </p>
