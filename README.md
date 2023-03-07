@@ -55,7 +55,32 @@ O/I
 - localhost:8004/service/producer/register4
 - localhost:8004/service/producer/register5
 
-
+2. Data Structure:
+{
+  "producer_id": "producer1",
+  "producer_message": {
+      "producer_message_id": "producer1",
+      "host": "producer1",
+      "client": "producer1",
+      "ip": "producer1",
+      "port": "producer1",
+      "data_producer": {
+          "data_producer_id": "producer1",
+          "product": "producer1",
+          "name": "producer1",
+          "category": "producer1",
+          "sub_category": "producer1",
+          "price": 12.32,
+          "quantity": 3,
+          "supplier": "producer1",
+          "description": "producer1",
+          "gender": "producer1"
+      },
+      "information_created_at": "producer1"
+  },
+  "producer_service_area": "producer1",
+  "producer_created_at": "producer1"
+}
 
 ## License
 
