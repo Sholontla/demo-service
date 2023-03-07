@@ -1,0 +1,7 @@
+{
+    "proto": "protoc -Iproto --go_out=proto --go_opt=module=github.com/logger/service/proto  --go-grpc_out=proto  --go-grpc_opt=module=github.com/logger/service/proto proto/logger.proto",
+
+    "proto_inv": "protoc -Iproto/inventory --go_out=proto/inventory --go_opt=module=github.com/logger/service/proto/inventory  --go-grpc_out=proto/inventory  --go-grpc_opt=module=github.com/logger/service/proto proto/inventory/inventory.proto",
+
+    "logger_proto": "protoc -Iproto/loggs --go_out=proto/loggs  --go_opt=module=service/logger/demo/proto/loggs  --go-grpc_out=proto/loggs  --go-grpc_opt=module=service/logger/demo/proto/loggs proto/loggs/loggs.proto"
+}

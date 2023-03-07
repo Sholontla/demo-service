@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package inventory;
+
+option go_package = "github.com/logger/service/proto/inventory";
+
+message InvenoryRequest {
+    bytes product_id = 1;               
+    string product_title = 2;
+    string product_classification = 3;
+    string product_category = 4;
+    string product_brand = 5;
+    string product_model = 6;
+    string product_material = 7;
+    string product_description = 8;
+    string product_image = 9;
+    string product_price = 10;
+    string product_quantity = 11;
+    string product_serial_number = 12;
+    string product_created_at = 13;
+    string product_updated_at = 14;
+    string supplier_name = 15;
+    string sku = 16;
+}
+
+message InventoryResponse {
+    string product_id_response = 1;               
+    string product_title_response = 2;
+    string product_classification_response = 3;
+    string product_category_response = 4;
+    string product_brand_response = 5;
+    string product_model_response = 6;
+    string product_material_response = 7;
+    string product_description_response = 8;
+    string product_image_response = 9;
+    string product_price_response = 10;
+    string product_quantity_response = 11;
+    string product_serial_number_response = 12;
+    string product_created_at_response = 13;
+    string product_updated_at_response = 14;
+    string supplier_name_response = 15;
+    string sku_response = 16;
+}
+
+service InventoryService {
+    rpc Inventory (InvenoryRequest) returns (InventoryResponse);
+    rpc StreamInventory (stream InvenoryRequest) returns (stream InventoryResponse);
+}

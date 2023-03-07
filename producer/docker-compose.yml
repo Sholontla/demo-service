@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  producer_backend:
+    restart: always
+    container_name: producer_backend
+    build: .
+    ports:
+      - 8004:8004
+    networks: 
+      - service_demo
+    volumes:
+      - .:/app
+
+networks:
+  service_demo:
+    name: net-service-demo

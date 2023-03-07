@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+
+  service_demo_mongodb_container:
+    image: mongo:latest
+    restart: always
+    container_name: container-servicedemo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME: servicedemo
+      - MONGO_INITDB_ROOT_PASSWORD: servicedemo
+    volumes:
+      - ./mongodb:/db/servicedemo
+      - type: volume
+        source: mongodb_data_volume
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "28081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: changeme
+      #ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: servicedemo
+      ME_CONFIG_MONGODB_ADMINPASSWORD: servicedemo
+      ME_CONFIG_MONGODB_URL: mongo://servicedemo:moservicedemongoadmin@mongo:27017/ 
+    depends_on:
+      - mongo
+
+volumes:
+  mongodb_data_volume:
+ 
+
+networks:
+  service-demo:
+    name: net-service-demo

@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  customer2_backend:
+    restart: always
+    container_name: customer2_backend
+    build: .
+    expose:
+      - 50052
+    networks: 
+      - service_demo
+    volumes:
+      - .:/app
+
+networks:
+  service_demo:
+    name: net-service-demo

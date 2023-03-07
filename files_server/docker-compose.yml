@@ -1,0 +1,54 @@
+version: '3.9'
+services:
+  pipe_files_backend:
+    restart: always
+    container_name: service_pipe_files_backend
+    build: .
+    ports:
+      - 5006:5006
+    networks: 
+      - service_demo
+    volumes:
+      - .:/app
+    depends_on:
+      - servdatadb
+
+  servdatadb:
+    image: mongo:latest
+    restart: always
+    container_name: container_servicedata
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=servicedemo
+      - MONGO_INITDB_ROOT_PASSWORD=servicedemo
+    volumes:
+      - ./mongodb:/db/servicedemo
+    ports:
+      - "27017:27017"
+    networks: 
+      - service_demo
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "28081:8081"
+    networks: 
+      - service_demo
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=servdatadb
+      - ME_CONFIG_BASICAUTH_USERNAME=datademo
+      - ME_CONFIG_BASICAUTH_PASSWORD=datademo
+      # - ME_CONFIG_MONGODB_AUTH_DATABASE=datademo
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=datademo
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=datademo
+      - ME_CONFIG_MONGODB_URL=mongodb://servicedemo:servicedemo@servdatadb:27018/ 
+    depends_on:
+      - servdatadb
+
+volumes:
+  mongodb_data_volume:
+ 
+networks:
+  service_demo:
+    name: net-service-demo

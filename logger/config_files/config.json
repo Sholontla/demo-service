@@ -1,0 +1,18 @@
+{
+    "server": 
+        {
+            "port": "8002",
+            "host": "logger_backend",
+            "rpc_port": "5001",
+            "grpc_port": "50010"
+        },
+    "config_db": 
+        {
+            "mongo_url": "mongodb://mongo:27017",
+            "user": "user",
+            "password": "password",
+            "collection": "logger"
+        }
+}
+
+

@@ -1,0 +1,14 @@
+go 1.19
+
+use (
+	./admin
+	./files_server
+	./logger
+	./producer
+	./service_consumer1
+	./service_consumer2
+	./service_consumer3
+	./service_consumer4
+	./service_consumer5
+	./tls_server
+)

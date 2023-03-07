@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package producer;
+
+option go_package = "service/producer/demo/internal/proto/loggs";
+
+message MainLoggerRequest {
+    string logger_id = 1;       
+    string logger_message = 2;   
+}
+
+message MainLoggerResponse {
+    string response_logger = 1;       
+}
+
+service LoggsProducerService {
+    rpc StreamProducer (stream MainLoggerRequest) returns (stream MainLoggerResponse);
+}

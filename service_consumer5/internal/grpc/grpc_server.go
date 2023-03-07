@@ -1,0 +1,45 @@
+package grpc
+
+import (
+	"fmt"
+	"log"
+	"net"
+
+	"service/consumer5/demo/config"
+	pb "service/consumer5/demo/internal/proto"
+
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
+)
+
+func GrpcProductServer() {
+	grpc_host, grpc_port, grpc_tls := config.GRPCConfig()
+	certFile, keyFile := config.GRPCPathsConfig()
+
+	add := fmt.Sprintf("%s:%s", grpc_host, grpc_port)
+	lis, err := net.Listen("tcp", add)
+
+	if err != nil {
+		log.Fatalf("Failed to listen on %s\n: ", err)
+	}
+
+	log.Printf("GRPC Server Listening on %s\n: ", add)
+
+	opts := []grpc.ServerOption{}
+
+	if grpc_tls {
+		creds, err := credentials.NewServerTLSFromFile(certFile, keyFile)
+		if err != nil {
+			log.Fatalf("Error while loading cert files: %v\n", err)
+		}
+		opts = append(opts, grpc.Creds(creds))
+	}
+
+	s := grpc.NewServer(opts...)
+
+	pb.RegisterProducerServiceServer(s, &Server{})
+
+	if err = s.Serve(lis); err != nil {
+		log.Fatalf("Failed to Serve on %s\n: ", err)
+	}
+}

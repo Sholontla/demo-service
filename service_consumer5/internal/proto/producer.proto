@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package producer;
+
+option go_package = "service/consumer5/demo/internal/proto";
+
+
+
+message MainProducerRequest {
+    string producer_id = 1;       
+    string producer_service_area = 2;   
+    string producer_created_at = 3; 
+    string producer_message_id = 4; 
+    string host = 5;  
+    string client = 6;  
+    string ip = 7;                
+    string port = 8;             
+    string information_created_at = 9;        
+    string data_producer_id = 10;   
+    string product = 11;  
+    string name = 12;  
+    string category = 13; 
+    string sub_category = 14; 
+    double price = 15; 
+    int32 quantity = 16; 
+    string supplier = 17; 
+    string description = 18;  
+    string gender = 19;  
+}
+
+message MainProducerResponse {
+    string producer_id = 1;       
+    string history_message = 2;   
+    string history_created_at = 3; 
+}
+
+service ProducerService {
+    rpc StreamProducer (stream MainProducerRequest) returns (stream MainProducerResponse);
+}
