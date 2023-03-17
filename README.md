@@ -9,7 +9,7 @@
 <h3 align="center">Service Demo in Go and Python</h3>
 
   <p align="center">
-   This Structure Demo is use for testing and demostration to understad Demo Structure Service please visit the diagram: https://github.com/Sholontla/demo-service/blob/main/demo-service-diagram.pdf
+   This Structure Demo is use for testing and demostration to understad Demo Structure Service please visit the diagram: https://github.com/Sholontla/demo-service/blob/main/demo-service-diagram.pdf 
     <br />
     <br />
   </p>
@@ -28,9 +28,8 @@ Python as HTTP client to make request to the service prodcucer.
 
 ### Built With
 
-- Python
 this service is made with Python.
-  . python_http_client
+  . python_http_client (only th python http_client)
   
 - Golang
 this services are dev with Go.
